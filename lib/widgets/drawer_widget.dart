@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank_app/pages/invoice_page.dart';
+import 'package:flutter_bank_app/pages/login_page.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -48,6 +49,23 @@ class DrawerWidget extends StatelessWidget {
             leading: const Icon(Icons.person),
             title: const Text('Meus dados'),
             onTap: () {},
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.exit_to_app,
+              color: Colors.red,
+            ),
+            title: const Text('Sair',
+                style:
+                    TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginPage(),
+                ),
+              );
+            },
           ),
         ],
       ),

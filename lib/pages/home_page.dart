@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bank_app/widgets/app_bar_widget.dart';
 import 'package:flutter_bank_app/widgets/card_action_widget.dart';
 import 'package:flutter_bank_app/widgets/drawer_widget.dart';
 
@@ -14,27 +15,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const DrawerWidget(),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 3.0, horizontal: 16.0),
-              child: Image.network(
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Dart-logo-icon.svg/2048px-Dart-logo-icon.svg.png',
-                height: 20,
-              ),
-            ),
-            const Text(
-              'Flutter Bank',
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      ),
+      appBar: const AppBarWidget(title: 'Flutter Bank'),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank_app/pages/home_page.dart';
+import 'package:flutter_bank_app/pages/register_page.dart';
+import 'package:flutter_bank_app/widgets/textfield_password_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -66,33 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                         )),
                   ),
                   const SizedBox(height: 20.0),
-                  TextField(
-                    obscureText: isObscureText,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                      ),
-                      filled: true,
-                      hintText: 'Digite sua senha',
-                      prefixIcon: const Icon(
-                        Icons.lock,
-                        color: Colors.blue,
-                      ),
-                      suffixIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isObscureText = !isObscureText;
-                          });
-                        },
-                        child: Icon(
-                          isObscureText
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: const Color.fromARGB(255, 80, 91, 109),
-                        ),
-                      ),
-                    ),
-                  ),
+                  const TextfieldPasswordWidget(),
                   const SizedBox(height: 20.0),
                   ElevatedButton(
                     onPressed: () {
@@ -120,7 +96,12 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 20.0),
                       const Text('Não tem uma conta?'),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const RegisterPage()));
+                        },
                         child: const Text(
                           'Cadastre-se',
                           style: TextStyle(
